@@ -1,0 +1,9 @@
+<input type="text" [(ngModel)]="filmToSearch">
+<button (click)="searchFilms()"> Buscar </button>
+
+<div class="clickable" 
+     [routerLink]="['/films',film.imdbID]"    
+     *ngFor="let film of filmsResults | async">
+    <p>{{film.Title}}</p>
+    <img [src]="film.Poster" alt="">
+</div>
