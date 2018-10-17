@@ -2,6 +2,7 @@ import { Subscription } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, NavigationStart } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,21 +10,24 @@ import { filter } from 'rxjs/operators';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  subscription: Subscription
+  user: string
+  password: string
   constructor(private router: Router,
-    private activatedRoute: ActivatedRoute) { }
+    private activatedRoute: ActivatedRoute,
+    private authService: AuthService) { }
 
   ngOnInit() {
   }
 
-  redirectTo(){
-    this.subscription = this.router.events.pipe(filter((e)=> e instanceof NavigationStart)).subscribe((routerEvent)=> {
-      console.log(routerEvent)
-    })
-    this.router.navigate(['films'])
+  login(){
+    if (this.user && this.password){
+        this.authService.authenticate(this.user, this.password)
+        this.router.navigate(['/films'])
+    }else {
+      alert('Introduce Usuario y/o Contraseña!!')
+    }
   }
 
   ngOnDestroy(){
-    this.subscription.unsubscribe()
   }
 }
