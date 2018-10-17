@@ -1,9 +1,17 @@
-<input type="text" [(ngModel)]="filmToSearch">
-<button (click)="searchFilms()"> Buscar </button>
+<div class="ui icon fluid input margin-50">
+    <input type="text" placeholder="Search..." [(ngModel)]="filmToSearch">
+    <i class="inverted circular search link icon" (click)="searchFilms()"></i>
+</div>
 
-<div class="clickable" 
-     [routerLink]="['/films',film.imdbID]"    
-     *ngFor="let film of filmsResults | async">
-    <p>{{film.Title}}</p>
-    <img [src]="film.Poster" alt="">
+<div class="ui three column grid margin-50">
+    <div class="column clickable" [routerLink]="['/films',film.imdbID]" *ngFor="let film of filmsResults | async">
+        <div class="ui fluid card">
+            <div class="image">
+                <img [src]="film.Poster">
+            </div>
+            <div class="content">
+                <p class="header">{{film.Title}}</p>
+            </div>
+        </div>
+    </div>
 </div>

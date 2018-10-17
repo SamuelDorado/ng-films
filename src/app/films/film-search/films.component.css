@@ -1,3 +1,7 @@
 .clickable {
     cursor: pointer;
 }
+
+.margin-50 {
+    margin: 50px;
+}

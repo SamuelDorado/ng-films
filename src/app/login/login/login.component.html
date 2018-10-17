@@ -1,8 +1,25 @@
-<label for="user">Usuario</label>
-<input type="text" [(ngModel)]="user"/>
- <br/>
-<label for="password">Passwrod</label>
-<input type="password" [(ngModel)]="password"/>
- <br/>
-<button (click)="login()">Enviar</button>
-
+<div class="vertical-centered">
+    <div class="column">
+      <h2 class="ui teal image header">
+        <img src="https://image.freepik.com/free-icon/film-reel-bridge_318-52560.jpg" class="image">
+        <div class="content">
+          Films Db
+        </div>
+      </h2>
+      <form class="ui large form">
+        <div class="ui segment">
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="user icon"></i>
+              <input type="text" name="email" [(ngModel)]="user" placeholder="Usuario">
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="lock icon"></i>
+              <input type="password" name="password" [(ngModel)]="password" placeholder="Contraseña">
+            </div>
+          </div>
+          <div (click)="login()" class="ui fluid large teal submit button">Enviar</div>
+        </div>
+      </form>
