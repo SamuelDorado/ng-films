@@ -16,8 +16,7 @@ import { LoginModule } from './login/login.module';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    LoginModule,
-    FilmsModule
+    LoginModule
   ],
   providers: [],
   bootstrap: [AppComponent]

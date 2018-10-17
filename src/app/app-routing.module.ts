@@ -4,7 +4,11 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
  {path:'login', component:LoginComponent},
- {path:'', redirectTo:'/login', pathMatch:'full'}
+ {
+    path: 'films',
+    loadChildren: './films/films.module#FilmsModule'
+  },
+  {path:'', redirectTo:'/login', pathMatch:'full'}
 ];
 
 @NgModule({
