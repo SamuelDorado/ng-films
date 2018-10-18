@@ -10,6 +10,11 @@ const routes: Routes = [
     loadChildren: './films/films.module#FilmsModule',
     canLoad: [AuthGuard]
   },
+ {
+    path: 'user-zone',
+    loadChildren: './user-zone/user-zone.module#UserZoneModule',
+    canLoad: [AuthGuard]
+  },
   {path:'', redirectTo:'/login', pathMatch:'full'}
 ];
 

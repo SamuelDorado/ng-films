@@ -1,0 +1,34 @@
+<form [formGroup]="userForm">
+  <div>
+    <label for="">Nombre:</label>
+    <input [class.error]="!userForm.get('name').valid && userForm.get('name').touched" type="text" formControlName="name">
+  </div>
+  <div>
+    <label for="">Apellidos:</label>
+    <input [class.error]="!userForm.get('surname').valid && userForm.get('surname').touched" type="text" formControlName="surname">
+  </div>
+  <div>
+    <label for="">Numero de Telefono:</label>
+    <input [class.error]="!userForm.get('phone').valid && userForm.get('phone').touched" type="text" formControlName="phone">
+  </div>
+  <div>
+    <label for="">Email:</label>
+    <input [class.error]="!userForm.get('mail').valid && userForm.get('mail').touched" type="text" formControlName="mail">
+  </div>
+  <div  formGroupName="address">
+    <label for="">Localidad:</label>
+    <input [class.error]="!userForm.get('address').get('city').valid && userForm.get('address').get('city').touched" type="text" formControlName="city">
+    <label for="">Código Postal:</label>
+    <input [class.error]="!userForm.get('address').get('postalCode').valid && userForm.get('address').get('postalCode').touched" type="text" formControlName="postalCode">
+  </div>
+  <div>
+    <label for="">Acepto las condiciones:</label>
+    <input type="checkbox" formControlName="gdprOk">
+  </div>
+</form>
+
+<p>
+    {{userForm.value| json}}
+</p>
+<br>
+{{userForm.get('address').get('city').value}}
